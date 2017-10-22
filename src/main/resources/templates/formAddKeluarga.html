@@ -1,0 +1,123 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<link rel="stylesheet" href="/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="/js/bootstrap.min.js" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		
+		<style>
+			ul {
+    			list-style-type: none;
+    			margin: 0;
+    			padding: 0;
+    			overflow: hidden;
+    			background-color: #333;
+			}
+
+			li {
+    			float: left;
+			}
+
+			li a {
+    			display: block;
+    			color: white;
+    			text-align: center;
+    			padding: 14px 16px;
+    			text-decoration: none;
+			}
+
+			li a:hover {
+    			background-color: #111;
+			}
+			
+			.button {
+				background-color: blue;
+				font-size: 15px;
+				color: white;
+			}
+		</style>
+	</head>
+
+	<body>
+		<ul>
+			<li><a href="#home">SI Kependudukan</a></li>
+  			<li><a class="active" href="#home">Home</a></li>
+  			<li><a href="#cari">Cari Data</a></li>
+		</ul>
+		
+		<div class="container">
+			<form action="/keluarga/tambah" th:object="${keluarga}" method="post">
+				<div>
+					<h3>Tambah Keluarga</h3>
+				</div>
+				<div class="form-group">
+					<div>
+						<label for="alamat">Alamat</label>
+					</div>
+					<input type="text" class="form-control" name="alamat" placeholder="" th:field="*{alamat}" required = "true" />
+				</div>
+				
+				<div class="form-group">
+					<div>
+						<label for="RT">RT</label>
+					</div>
+					<input type="text" class="form-control" name="RT" placeholder="" th:field="*{RT}" required = "true" />
+				</div>
+				
+				<div class="form-group">
+					<div>
+						<label for="RW">RW</label>
+					</div>
+					<input type="text" class="form-control" name="RW" placeholder="" th:field="*{RW}" required = "true" />
+				</div>
+				
+				<div class="form-group">
+					<div>
+						<label for="id_kota">Kota</label>
+					</div>
+					<select name="id_kota" class="form-control" th:value="*{id_kota}" required="required">
+						<option hidden="hidden" value="">Pilih Kota</option>
+						<option th:value="1">KABUPATEN KEPULAUAN SERIBU</option>
+						<option th:value="2">KOTA JAKARTA SELATAN</option>
+						<option th:value="3">KOTA JAKARTA TIMUR</option>
+						<option th:value="4">KOTA JAKARTA PUSAT</option>
+						<option th:value="5">KOTA JAKARTA BARAT</option>
+						<option th:value="6">KOTA JAKARTA UTARA</option>
+					</select>
+				</div>
+				
+				<div class="form-group">
+					<div>
+						<label for="id_kecamatan">Kecamatan</label>
+					</div>
+					<select name="id_kecamatan" class="form-control"
+							th:value="*{id_kecamatan}" required="required">
+							<option hidden="hidden" value="">Pilih Kecamatan</option>
+							<option th:each="kecamatan : ${kecamatan}" th:value="${kecamatan.id}"
+								th:text="${kecamatan.nama_kecamatan}">Kecamatan</option>
+					</select>
+				</div>
+				
+				<div class="form-group">
+					<div>
+						<label for="id_kelurahan">Kelurahan</label>
+					</div>
+					<select name="id_kelurahan" class="form-control"
+							th:value="*{id_kelurahan}" required="required">
+							<option hidden="hidden" value="">Pilih Kelurahan</option>
+							<option th:each="kelurahan : ${kelurahan}" th:value="${kelurahan.id}"
+								th:text="${kelurahan.nama_kelurahan}">Kelurahan</option>
+					</select>
+				</div>
+				
+				<div>
+					<button class="button" type="submit">Simpan</button>
+				</div>
+			</form>
+		</div>
+		
+	</body>
+</html>

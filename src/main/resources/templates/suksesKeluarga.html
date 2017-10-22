@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<link rel="stylesheet" href="/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		
+		<style>
+			ul {
+    			list-style-type: none;
+    			margin: 0;
+    			padding: 0;
+    			overflow: hidden;
+    			background-color: #333;
+			}
+
+			li {
+    			float: left;
+			}
+
+			li a {
+    			display: block;
+    			color: white;
+    			text-align: center;
+    			padding: 14px 16px;
+    			text-decoration: none;
+			}
+
+			li a:hover {
+    			background-color: #111;
+			}
+		</style>
+	</head>
+
+	<body>
+		<ul>
+			<li><a href="#home">SI Kependudukan</a></li>
+  			<li><a class="active" href="#home">Home</a></li>
+  			<li><a href="#cari">Cari Data</a></li>
+		</ul>
+		
+		<strong><h1>Sukses!</h1></strong>
+		<h3 th:text="'Keluarga dengan NKK ' + ${keluarga.nomor_kk} + ' berhasil ditambahkan'">Data Keluarga</h3>
+	
+	</body>
+</html>

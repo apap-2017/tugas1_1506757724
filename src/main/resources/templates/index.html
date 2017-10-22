@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<link rel="stylesheet" href="/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<style>
+			ul {
+    			list-style-type: none;
+    			margin: 0;
+    			padding: 0;
+    			overflow: hidden;
+    			background-color: #333;
+			}
+
+			li {
+    			float: left;
+			}
+
+			li a {
+    			display: block;
+    			color: white;
+    			text-align: center;
+    			padding: 14px 16px;
+    			text-decoration: none;
+			}
+
+			li a:hover {
+    			background-color: #111;
+			}
+			
+			.button {
+				background-color: blue;
+				font-size: 15px;
+				color: white;
+				margin: 5px 0px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<ul>
+			<li><a href="#home">SI Kependudukan</a></li>
+  			<li><a class="active" href="#home">Home</a></li>
+  			<li><a href="#cari">Cari Data</a></li>
+		</ul>
+		
+		<div class="container">
+			<h1>Sistem Informasi Kependudukan Online Provinsi DKI Jakarta</h1>
+			<h5>Selamat datang di Sistem Informasi Kependudukan Online Provinsi DKI Jakarta</h5>
+			<div>
+				<h3>Lihat Data Penduduk Berdasarkan NIK</h3>
+				<form action="/penduduk" method="get">
+					<div>
+						<div>
+							<strong><label for="nik">Masukkan Nomor Induk Kependudukan</label></strong>
+						</div>
+						<input type="text" name="nik" />
+					</div>
+					<div>
+						<button class="button" type="submit">Lihat</button>
+					</div>
+				</form>
+			</div>
+			
+			<div>
+				<h3>Lihat Data Keluarga Berdasarkan NKK</h3>
+				<form action="/keluarga" method="get">
+					<div>
+						<div>
+							<label for="nkk">Masukkan Nomor Kartu Keluarga</label>
+						</div>
+						<input type="text" name="nkk" />
+					</div>
+					<div>
+						<button class="button" type="submit">Lihat</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	
+	</body>
+
+</html>
